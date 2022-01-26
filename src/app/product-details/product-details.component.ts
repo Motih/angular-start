@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Product, products } from '../products';
@@ -8,7 +8,7 @@ import { Product, products } from '../products';
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css']
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   product: Product | undefined;
   constructor(private route: ActivatedRoute) { }
@@ -20,6 +20,9 @@ export class ProductDetailsComponent implements OnInit {
 
   // Find the product that correspond with the id provided in route.
   this.product = products.find(product => product.id === productIdFromRoute);
+  }
+
+  ngOnDestroy(){
   }
 
 }
