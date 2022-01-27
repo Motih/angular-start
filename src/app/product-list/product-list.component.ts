@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from '../cart.service';
 //import { Console, log } from 'console';
 
 import { products, Product} from '../products';
@@ -9,6 +10,9 @@ import { products, Product} from '../products';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
+  
+  constructor(private cartService: CartService){}
+
   products = products;
 
   share(x:  Product){//, y: object, z: object) {
@@ -16,6 +20,7 @@ export class ProductListComponent {
     debugger;
    console.log(a);
     window.alert(x.name);
+this.cartService.addItem(x);
   }
 
   onNotify(x:  Product) {
