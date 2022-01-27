@@ -19,7 +19,7 @@ export class ProductListComponent {
     var a= arguments;
     debugger;
    console.log(a);
-    window.alert(x.name);
+    //window.alert(x.name);
 this.cartService.addItem(x);
   }
 
